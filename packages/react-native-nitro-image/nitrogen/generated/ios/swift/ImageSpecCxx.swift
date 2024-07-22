@@ -19,7 +19,7 @@ import NitroModules
  * - Throwing methods need to be wrapped with a Result<T, Error> type, as exceptions cannot be propagated to C++
  */
 public final class ImageSpecCxx {
-  private var implementation: ImageSpec
+  private(set) var implementation: ImageSpec
 
   public init(_ implementation: ImageSpec) {
     self.implementation = implementation
@@ -67,7 +67,7 @@ public final class ImageSpecCxx {
   @inline(__always)
   public func saveToFile(path: String) -> ImageSpec_saveToFile_Result {
     do {
-      try self.implementation.saveToFile(path: path)
+       try self.implementation.saveToFile(path: path)
       return .value
     } catch {
       // Due to a Swift bug, we have to copy the string here.
