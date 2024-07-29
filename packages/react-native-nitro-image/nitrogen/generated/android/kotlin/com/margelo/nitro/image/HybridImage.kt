@@ -32,6 +32,8 @@ abstract class HybridImage: HybridObject {
 
   private external fun initHybrid(): HybridData
 
+  protected val TAG = "HybridImage"
+
   // Properties
   @get:DoNotStrip
   @get:Keep
