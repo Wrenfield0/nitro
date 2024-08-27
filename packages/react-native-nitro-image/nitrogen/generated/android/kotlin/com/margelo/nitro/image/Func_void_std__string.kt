@@ -14,16 +14,28 @@ import com.facebook.proguard.annotations.DoNotStrip
 import dalvik.annotation.optimization.FastNative
 
 /**
- * Represents the JavaScript callback "(path: String) -> Unit".
+ * Represents the JavaScript callback `(path: string) => void`.
  * This is implemented in C++, via a `std::function<...>`.
  */
 @DoNotStrip
 @Keep
-@Suppress("KotlinJniMissingFunction", "ClassName", "unused")
-class Func_void_std__string @DoNotStrip @Keep private constructor(hybridData: HybridData) {
+@Suppress("RedundantSuppression", "ConvertSecondaryConstructorToPrimary", "RedundantUnitReturnType", "KotlinJniMissingFunction", "ClassName", "unused")
+class Func_void_std__string {
   @DoNotStrip
   @Keep
-  private val mHybridData: HybridData = hybridData
+  private val mHybridData: HybridData
+
+  @DoNotStrip
+  @Keep
+  private constructor(hybridData: HybridData) {
+    mHybridData = hybridData
+  }
+
+  /**
+   * Converts this function to a Kotlin Lambda.
+   * This exists purely as syntactic sugar, and has minimal runtime overhead.
+   */
+  fun toLambda(): (path: String) -> Unit = this::call
 
   /**
    * Call the given JS callback.
