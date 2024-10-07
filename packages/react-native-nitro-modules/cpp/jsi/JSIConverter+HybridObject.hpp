@@ -78,7 +78,7 @@ struct JSIConverter<T, std::enable_if_t<is_shared_ptr_to_v<T, jsi::NativeState>>
   }
 
 private:
-  static inline std::string invalidTypeErrorMessage(const std::string& typeDescription, const std::string& reason) {
+  static std::string invalidTypeErrorMessage(const std::string& typeDescription, const std::string& reason) {
     std::string typeName = TypeInfo::getFriendlyTypename<TPointee>();
     return "Cannot convert \"" + typeDescription + "\" to NativeState<" + typeName + ">! " + reason;
   }
