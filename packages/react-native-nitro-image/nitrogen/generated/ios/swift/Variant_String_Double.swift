@@ -11,6 +11,6 @@
  */
 @frozen
 public enum Variant_String_Double {
-  case someString(String)
-  case someDouble(Double)
+  case first(String)
+  case second(Double)
 }
