@@ -68,7 +68,9 @@ export function ViewScreenImpl() {
       </View>
 
       <View style={[styles.bottomView, { backgroundColor: colors.background }]}>
-        <Text>{isUpdating ? '🔄 Updating...' : '📱 Idle'}</Text>
+        <Text style={styles.resultText} numberOfLines={2}>
+          {isUpdating ? '🔄 Updating...' : '📱 Idle'}
+        </Text>
         <View style={styles.flex} />
         <Button
           title={isUpdating ? 'Stop Updating' : 'Start Updating'}
@@ -152,6 +154,9 @@ const styles = StyleSheet.create({
   testBox: {
     flexShrink: 1,
     flexDirection: 'column',
+  },
+  resultText: {
+    flexShrink: 1,
   },
   testName: {
     fontSize: 16,
